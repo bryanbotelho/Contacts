@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    
+    /* Configurações de Ambiente */
+    "baseUrl": ".",
+    "types": ["node"],
+    "lib": ["ES2022"],
+    
+    /* Rigor de Tipagem */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Interoperabilidade e Saída */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*", 
+    "prisma.config.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Country {
+  id         Int       @id @default(autoincrement())
+  name       String
+  iso        String    @unique
+  phone_code String    @unique
+  contacts   Contact[]
+
+  @@map("countries")
+}
+
+model Contact {
+  id         Int      @id @default(autoincrement())
+  first_name String
+  last_name  String
+  number     String
+  country_id Int
+  country    Country  @relation(fields: [country_id], references: [id])
+  created_at DateTime @default(now())
+  update_at  DateTime @updatedAt
+
+  @@map("contacts")
+}

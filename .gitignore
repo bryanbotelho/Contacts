@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente (Segurança)
+.env
+
+# Build
+dist/
+build/
+
+# Docker
+# (Geralmente não ignoramos o Dockerfile, mas ignoramos dados locais do banco se o docker criar)
+pgdata/ 
+
+# Logs e Sistema
+npm-debug.log*
+.DS_Store
+.vscode/

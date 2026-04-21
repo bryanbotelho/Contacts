@@ -1,0 +1,46 @@
+{
+  "pt": {
+    "FIELD_REQUIRED_FIRST_NAME": "Campo 'primeiro nome' é obrigatório.",
+    "FIELD_REQUIRED_LAST_NAME": "Campo 'sobrenome' é obrigatório.",
+    "FIELD_INVALID_FIRST_NAME": "Campo 'primeiro nome' é inválido.",
+    "FIELD_INVALID_LAST_NAME": "Campo 'sobrenome' é inválido.",
+    "FIRST_NAME_MIN_LENGTH": "O nome deve conter pelo menos 3 caracteres.",
+    "FIRST_NAME_MAX_LENGTH": "O nome deve conter no máximo 30 caracteres.",
+    "LAST_NAME_MIN_LENGTH": "O sobrenome deve conter pelo menos 3 caracteres.",
+    "LAST_NAME_MAX_LENGTH": "O sobrenome deve conter no máximo 30 caracteres.",
+    "FIELD_REQUIRED_COUNTRY": "Campo 'país' é obrigatório.",
+    "FIELD_PHONE_INVALID": "O telefone fornecido não é válido.",
+    "FIELD_REQUIRED_PHONE": "O campo de telefone é obrigatório.",
+    "PHONE_TOO_SHORT": "O telefone informado é muito curto.",
+    "PHONE_TOO_LONG": "O telefone informado é muito longo.",
+    "COUNTRY_INVALID": "O código do país informado não é válido.",
+    "USER_EXISTS_PHONE": "Já existe um usuário com esse telefone.",
+    "CONTACT_NOT_FOUND": "Contato não encontrado.",
+    "CONTACT_DELETED": "Contato removido com sucesso",
+    "INVALID_PAYLOAD": "Os dados enviados são inválidos.",
+    "INTERNAL_ERROR": "Erro interno do servidor"
+  },
+
+  "en": {
+    "FIELD_REQUIRED_FIRST_NAME": "First name is required.",
+    "FIELD_REQUIRED_LAST_NAME": "Last name is required.",
+    "FIELD_INVALID_FIRST_NAME": "First name is invalid.",
+    "FIELD_INVALID_LAST_NAME": "Last name is invalid.",
+    "FIRST_NAME_MIN_LENGTH": "First name must be at least 3 characters long.",
+    "FIRST_NAME_MAX_LENGTH": "First name must be at most 30 characters long.",
+    "LAST_NAME_MIN_LENGTH": "Last name must be at least 3 characters long.",
+    "LAST_NAME_MAX_LENGTH": "Last name must be at most 30 characters long.",
+    "FIELD_REQUIRED_COUNTRY": "Country is required.",
+    "FIELD_PHONE_INVALID": "The phone number provided is invalid.",
+    "FIELD_REQUIRED_PHONE": "Phone number is required.",
+    "PHONE_TOO_SHORT": "The phone number is too short.",
+    "PHONE_TOO_LONG": "The phone number is too long.",
+    "COUNTRY_INVALID": "The provided country code is invalid.",
+    "USER_EXISTS_PHONE": "A user with this phone number already exists.",
+    "CONTACT_NOT_FOUND": "Contact not found.",
+    "CONTACT_DELETED": "Contact successfully removed.",
+    "INVALID_PAYLOAD": "The data provided is invalid.",
+    "INTERNAL_ERROR": "Internal server error."
+  }
+}
+

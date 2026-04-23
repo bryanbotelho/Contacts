@@ -21,7 +21,8 @@
     "SERVER_ERROR": "Erro interno do servidor",
     "CONTACT_CREATED": "Contato criado com sucesso.",
     "INVALID_PHONE_NUMBER": "O número de telefone é inválido.",
-    "COUNTRY_NOT_FOUND": "O país informado não foi encontrado."
+    "COUNTRY_NOT_FOUND": "O país informado não foi encontrado.",
+    "CONTACT_ALREADY_EXISTS": "Já existe um contato com esse número de telefone."
   },
 
   "en": {
@@ -46,7 +47,8 @@
     "SERVER_ERROR": "Internal server error.",
     "CONTACT_CREATED": "Contact successfully created.",
     "INVALID_PHONE_NUMBER": "The phone number is invalid.",
-    "COUNTRY_NOT_FOUND": "The specified country was not found."
+    "COUNTRY_NOT_FOUND": "The specified country was not found.",
+    "CONTACT_ALREADY_EXISTS": "A contact with this phone number already exists."
   }
 }
 

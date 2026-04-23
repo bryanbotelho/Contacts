@@ -1,6 +1,6 @@
 import Joi from 'joi';
 import { prisma } from '../lib/prisma';
-import { CreateContact } from 'src/@types/contact';
+import { CreateContact, UpdateContact } from 'src/@types/contact';
 import { getMessage } from 'src/utils/messageHelper';
 import { CreateContactSchema } from 'src/schemas/contact';
 
@@ -19,6 +19,16 @@ class ContactService {
             }
 
             const countries = await prisma.country.findMany();
+
+            const existingContact = await prisma.contact.findFirst({
+                where: {
+                    number: number.trim()
+                }
+            });
+
+            if (!existingContact)  {
+                return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS') };
+            }
 
             const country = countries
                 .sort((a: { phoneCode: string }, b: { phoneCode: string }) =>
@@ -55,6 +65,39 @@ class ContactService {
 
     }
 
+    async updateContact(id: number, data: UpdateContact) {
+        const { firstName, lastName, number } = data;
+        try {
+            const validator: Joi.ValidationResult = UpdateContactSchema(this.lang as 'pt')
+            .validate({ firstName, lastName, number });
+
+            if (validator.error) {
+                const errorMessage = validator.error.details.map(err => err.message).join(', ');
+                return { status: 400, success: false, message: errorMessage };
+            }
+            const existingContact = await prisma.contact.findUnique({
+                where: { id }
+            });
+
+            if (!existingContact) {
+                return { status: 404, success: false, message: getMessage('CONTACT_NOT_FOUND', this.lang as 'pt') };
+            }
+
+            await prisma.contact.update({
+                where: { id },
+                data: {
+                    firstName,
+                    lastName,
+                    number
+                }
+            });
+
+            return { status: 200, success: true, message: getMessage('CONTACT_UPDATED', this.lang as 'pt') };
+        } catch (error) {
+            console.error(error);
+            return { status: 500, success: false, message: getMessage('SERVER_ERROR', this.lang as 'pt') };
+        }
+    }
 }
 
 export default new ContactService();

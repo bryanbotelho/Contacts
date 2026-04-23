@@ -9,6 +9,13 @@ class ContactController {
     
       return res.status(status).json({ message, success });
     }
+
+  async update(req: Request, res: Response) {
+      const { message, success, status } = await ContactService.updateContact(req.body as UpdateContact);
+      if (!success) return res.status(status).json({ message, success });
+
+      return res.status(status).json({ message, success });
+  }
 }
 
 export default new ContactController();

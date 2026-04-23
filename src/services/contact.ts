@@ -2,7 +2,7 @@ import Joi from 'joi';
 import { prisma } from '../lib/prisma';
 import { CreateContact, UpdateContact } from 'src/@types/contact';
 import { getMessage } from 'src/utils/messageHelper';
-import { CreateContactSchema } from 'src/schemas/contact';
+import { CreateContactSchema, UpdateContactSchema } from 'src/schemas/contact';
 
 class ContactService {
     private lang = 'pt';

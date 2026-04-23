@@ -16,3 +16,14 @@ export interface CreateContact {
     createdAt: Date;
     updateAt: Date;
 }
+
+export interface UpdateContact {
+    id?: number;
+    firstName?: string;
+    lastName?: string;
+    number?: string;
+    countryId?: number;
+    country?: CreateCountry;
+    createdAt?: Date;
+    updateAt: Date;
+}

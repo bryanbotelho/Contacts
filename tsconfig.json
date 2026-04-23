@@ -4,12 +4,12 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    
+
     /* Configurações de Ambiente */
     "baseUrl": ".",
     "types": ["node"],
     "lib": ["ES2022"],
-    
+
     /* Rigor de Tipagem */
     "strict": true,
     "noImplicitAny": true,
@@ -28,7 +28,8 @@
     "allowJs": true
   },
   "include": [
-    "src/**/*", 
+    "src/**/*",
+    "prisma/**/*",
     "prisma.config.ts"
   ],
   "exclude": [

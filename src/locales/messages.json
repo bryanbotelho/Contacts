@@ -18,7 +18,10 @@
     "CONTACT_NOT_FOUND": "Contato não encontrado.",
     "CONTACT_DELETED": "Contato removido com sucesso",
     "INVALID_PAYLOAD": "Os dados enviados são inválidos.",
-    "INTERNAL_ERROR": "Erro interno do servidor"
+    "SERVER_ERROR": "Erro interno do servidor",
+    "CONTACT_CREATED": "Contato criado com sucesso.",
+    "INVALID_PHONE_NUMBER": "O número de telefone é inválido.",
+    "COUNTRY_NOT_FOUND": "O país informado não foi encontrado."
   },
 
   "en": {
@@ -40,7 +43,10 @@
     "CONTACT_NOT_FOUND": "Contact not found.",
     "CONTACT_DELETED": "Contact successfully removed.",
     "INVALID_PAYLOAD": "The data provided is invalid.",
-    "INTERNAL_ERROR": "Internal server error."
+    "SERVER_ERROR": "Internal server error.",
+    "CONTACT_CREATED": "Contact successfully created.",
+    "INVALID_PHONE_NUMBER": "The phone number is invalid.",
+    "COUNTRY_NOT_FOUND": "The specified country was not found."
   }
 }
 

@@ -3,7 +3,7 @@ import { getMessage } from '../utils/messageHelper';
 
 export const CreateContactSchema = (lang: 'pt' | 'en' = 'pt') => {
     return Joi.object({
-        first_name: Joi.string()
+        firstName: Joi.string()
         .trim()
         .min(3)
         .max(30)
@@ -15,7 +15,7 @@ export const CreateContactSchema = (lang: 'pt' | 'en' = 'pt') => {
             'any.required': getMessage('FIELD_REQUIRED_FIRST_NAME')
         }),
 
-        last_name: Joi.string()
+        lastName: Joi.string()
         .trim()
         .min(3)
         .max(30)
@@ -27,7 +27,7 @@ export const CreateContactSchema = (lang: 'pt' | 'en' = 'pt') => {
             'any.required': getMessage('FIELD_REQUIRED_LAST_NAME')
         }),
     
-        phone: Joi.string()
+        number: Joi.string()
         .required()
         .messages({
         'string.base': getMessage('FIELD_PHONE_INVALID'),

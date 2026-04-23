@@ -1,18 +1,18 @@
-export interface ResultCountry {
+export interface CreateCountry {
     id: number;
     name: string;
     iso: string;
     phoneCode: string; 
-    contacts: ResultContact[];
+    contacts: CreateContact[];
 }
 
-export interface ResultContact {
+export interface CreateContact {
     id: number;
     firstName: string;
     lastName: string;
     number: string;
     countryId: number;
-    country?: ResultCountry;
+    country?: CreateCountry;
     createdAt: Date;
     updateAt: Date;
 }

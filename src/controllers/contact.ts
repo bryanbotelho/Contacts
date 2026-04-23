@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import ContactService from "src/services/contact";
-import { CreateContact } from "src/@types/contact";
+import { CreateContact, UpdateContact } from "src/@types/contact";
 
 class ContactController {
   async create(req: Request, res: Response) {
@@ -11,7 +11,8 @@ class ContactController {
     }
 
   async update(req: Request, res: Response) {
-      const { message, success, status } = await ContactService.updateContact(req.body as UpdateContact);
+      const id = parseInt(req.params.id as string, 10);
+      const { message, success, status } = await ContactService.updateContact(id, req.body as UpdateContact);
       if (!success) return res.status(status).json({ message, success });
 
       return res.status(status).json({ message, success });

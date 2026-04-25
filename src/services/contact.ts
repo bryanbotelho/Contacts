@@ -25,7 +25,7 @@ class ContactService {
             });
 
             if (existingContact)  {
-                return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS') };
+                return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS', this.lang as 'pt') };
             }
 
             const country = await prisma.country.findFirst({
@@ -35,7 +35,7 @@ class ContactService {
             });
 
             if (!country) {
-                return { status: 404, success: false, message: getMessage('COUNTRY_NOT_FOUND') };
+                return { status: 404, success: false, message: getMessage('COUNTRY_NOT_FOUND', this.lang as 'pt') };
                 }
 
             await prisma.contact.create({
@@ -47,10 +47,10 @@ class ContactService {
                 }
             });
 
-            return { status: 201, success: true, message: getMessage('CONTACT_CREATED') };
+            return { status: 201, success: true, message: getMessage('CONTACT_CREATED', this.lang as 'pt') };
         } catch (error) {
             console.error(error);
-            return { status: 500, success: false, message: getMessage('SERVER_ERROR') };
+            return { status: 500, success: false, message: getMessage('SERVER_ERROR', this.lang as 'pt') };
         }
 
     }

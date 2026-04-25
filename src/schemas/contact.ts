@@ -9,10 +9,10 @@ export const CreateContactSchema = (lang: 'pt' | 'en' = 'pt') => {
         .max(30)
         .required()
         .messages({
-            'string.base': getMessage('FIELD_INVALID_FIRST_NAME'),
-            'string.min': getMessage('FIRST_NAME_MIN_LENGTH'),
-            'string.max': getMessage('FIRST_NAME_MAX_LENGTH'),
-            'any.required': getMessage('FIELD_REQUIRED_FIRST_NAME')
+            'string.base': getMessage('FIRST_NAME_FIELD_INVALID', lang),
+            'string.min': getMessage('FIRST_NAME_MIN_LENGTH', lang),
+            'string.max': getMessage('FIRST_NAME_MAX_LENGTH', lang),
+            'any.required': getMessage('FIRST_NAME_FIELD_REQUIRED', lang)
         }),
 
         lastName: Joi.string()
@@ -21,17 +21,33 @@ export const CreateContactSchema = (lang: 'pt' | 'en' = 'pt') => {
         .max(30)
         .required()
         .messages({
-            'string.base': getMessage('FIELD_INVALID_LAST_NAME'),
-            'string.min': getMessage('LAST_NAME_MIN_LENGTH'),
-            'string.max': getMessage('LAST_NAME_MAX_LENGTH'),
-            'any.required': getMessage('FIELD_REQUIRED_LAST_NAME')
+            'string.base': getMessage('LAST_NAME_FIELD_INVALID', lang),
+            'string.min': getMessage('LAST_NAME_MIN_LENGTH', lang),
+            'string.max': getMessage('LAST_NAME_MAX_LENGTH', lang),
+            'any.required': getMessage('LAST_NAME_FIELD_REQUIRED', lang)
         }),
     
-        number: Joi.string()
+        number: Joi.number()
+        .greater(0)
+        .min(10000)
         .required()
         .messages({
-        'string.base': getMessage('FIELD_PHONE_INVALID'),
-        'any.required': getMessage('FIELD_REQUIRED_PHONE')
+        'string.base': getMessage('PHONE_NUMBER_FIELD_INVALID', lang),
+        'number.greater': getMessage('PHONE_NUMBER_INVALID_GREATER', lang),
+        'number.min': getMessage('PHONE_NUMBER_MIN_LENGTH', lang),
+        'any.required': getMessage('PHONE_NUMBER_FIELD_REQUIRED', lang)
+        }),
+
+        ddi: Joi.string()
+        .trim()
+        .min(1)
+        .max(4)
+        .required()
+        .messages({
+            'string.base': getMessage('DDI_FIELD_INVALID', lang),
+            'string.min': getMessage('DDI_MIN_LENGTH', lang),
+            'string.max': getMessage('DDI_MAX_LENGTH', lang),
+            'any.required': getMessage('DDI_FIELD_REQUIRED', lang)
         }),
     });
 };
@@ -44,10 +60,10 @@ export const UpdateContactSchema = (lang: 'pt' | 'en' = 'pt') => {
         .max(30)
         .required()
         .messages({
-            'string.base': getMessage('FIELD_INVALID_FIRST_NAME'),
-            'string.min': getMessage('FIRST_NAME_MIN_LENGTH'),
-            'string.max': getMessage('FIRST_NAME_MAX_LENGTH'),
-            'any.required': getMessage('FIELD_REQUIRED_FIRST_NAME')
+            'string.base': getMessage('FIRST_NAME_FIELD_INVALID', lang),
+            'string.min': getMessage('FIRST_NAME_MIN_LENGTH', lang),
+            'string.max': getMessage('FIRST_NAME_MAX_LENGTH', lang),
+            'any.required': getMessage('FIRST_NAME_FIELD_REQUIRED', lang)
         }),
 
         lastName: Joi.string()
@@ -56,17 +72,33 @@ export const UpdateContactSchema = (lang: 'pt' | 'en' = 'pt') => {
         .max(30)
         .required()
         .messages({
-            'string.base': getMessage('FIELD_INVALID_LAST_NAME'),
-            'string.min': getMessage('LAST_NAME_MIN_LENGTH'),
-            'string.max': getMessage('LAST_NAME_MAX_LENGTH'),
-            'any.required': getMessage('FIELD_REQUIRED_LAST_NAME')
+            'string.base': getMessage('LAST_NAME_FIELD_INVALID', lang),
+            'string.min': getMessage('LAST_NAME_MIN_LENGTH', lang),
+            'string.max': getMessage('LAST_NAME_MAX_LENGTH', lang),
+            'any.required': getMessage('LAST_NAME_FIELD_REQUIRED', lang)
         }),
     
-        number: Joi.string()
+        number: Joi.number()
+        .greater(0)
+        .min(10000)
         .required()
         .messages({
-        'string.base': getMessage('FIELD_PHONE_INVALID'),
-        'any.required': getMessage('FIELD_REQUIRED_PHONE')
+        'string.base': getMessage('PHONE_NUMBER_FIELD_INVALID', lang),
+        'number.greater': getMessage('PHONE_NUMBER_INVALID_GREATER', lang),
+        'number.min': getMessage('PHONE_NUMBER_MIN_LENGTH', lang),
+        'any.required': getMessage('PHONE_NUMBER_FIELD_REQUIRED', lang)
+        }),
+
+        ddi: Joi.string()
+        .trim()
+        .min(1)
+        .max(4)
+        .required()
+        .messages({
+            'string.base': getMessage('DDI_FIELD_INVALID', lang),
+            'string.min': getMessage('DDI_MIN_LENGTH', lang),
+            'string.max': getMessage('DDI_MAX_LENGTH', lang),
+            'any.required': getMessage('DDI_FIELD_REQUIRED', lang)
         }),
     });
 };
@@ -78,11 +110,11 @@ export const DeleteContactSchema = (lang: 'pt' | 'en' = 'pt') => {
         .min(1)
         .required()
         .messages({
-            'number.base': getMessage('DELETE_CONTACT_INVALID_ID'),
-            'number.greater': getMessage('DELETE_CONTACT_INVALID_GREATER'),
-            'number.min': getMessage('DELETE_CONTACT_ID_MIN_LENGTH'),
-            'number.empty': getMessage('DELETE_CONTACT_ID_EMPTY'),
-            'any.required': getMessage('DELETE_CONTACT_ID_REQUIRED'),
+            'number.base': getMessage('DELETE_CONTACT_INVALID_ID', lang),
+            'number.greater': getMessage('DELETE_CONTACT_INVALID_GREATER', lang),
+            'number.min': getMessage('DELETE_CONTACT_ID_MIN_LENGTH', lang),
+            'number.empty': getMessage('DELETE_CONTACT_ID_EMPTY', lang),
+            'any.required': getMessage('DELETE_CONTACT_ID_REQUIRED', lang),
         }),
     });
 }

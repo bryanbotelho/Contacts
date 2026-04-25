@@ -8,21 +8,19 @@ class ContactService {
     private lang = 'pt';
     
     async createContact(data: CreateContact) {
-        const { firstName, lastName, number } = data;
+        const { firstName, lastName, number, ddi } = data;
         try {
             const validator: Joi.ValidationResult = CreateContactSchema(this.lang as 'pt')
-            .validate({ firstName, lastName, number });
+                .validate({ firstName, lastName, number, ddi });
 
             if (validator.error) {
                 const errorMessage = validator.error.details.map(err => err.message).join(', ');
                 return { status: 400, success: false, message: errorMessage };
             }
 
-            const countries = await prisma.country.findMany();
-
             const existingContact = await prisma.contact.findFirst({
                 where: {
-                    number: number.trim()
+                    number,
                 }
             });
 
@@ -30,11 +28,11 @@ class ContactService {
                 return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS') };
             }
 
-            const country = countries
-                .sort((a: { phoneCode: string }, b: { phoneCode: string }) =>
-                    b.phoneCode.length - a.phoneCode.length
-                )
-                .find((c: { phoneCode: string }) => number.startsWith(c.phoneCode));
+            const country = await prisma.country.findFirst({
+                where: {
+                    phoneCode: ddi
+                }
+            });
 
             if (!country) {
                 return { status: 404, success: false, message: getMessage('COUNTRY_NOT_FOUND') };
@@ -58,16 +56,16 @@ class ContactService {
     }
 
     async updateContact(id: number, data: UpdateContact) {
-        const { firstName, lastName, number } = data;
+        const { firstName, lastName, number, ddi } = data;
         try {
             const validator: Joi.ValidationResult = UpdateContactSchema(this.lang as 'pt')
-            .validate({ firstName, lastName, number });
+            .validate({ firstName, lastName, number, ddi });
 
             if (validator.error) {
                 const errorMessage = validator.error.details.map(err => err.message).join(', ');
                 return { status: 400, success: false, message: errorMessage };
             }
-            const existingContact = prisma.contact.findUnique({
+            const existingContact = await prisma.contact.findUnique({
                 where: { id }
             });
 
@@ -75,7 +73,11 @@ class ContactService {
                 return { status: 404, success: false, message: getMessage('CONTACT_NOT_FOUND', this.lang as 'pt') };
             }
 
-            const normalizedNumber = number!.trim();
+            const normalizedNumber = number
+
+            const country = await prisma.country.findFirst({
+                where: { phoneCode: ddi}
+            });
 
             const duplicated = await prisma.contact.findFirst({
                 where: {
@@ -86,13 +88,7 @@ class ContactService {
             
             if (duplicated) {
                 return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS')};
-            }
-            
-            const countries = await prisma.country.findMany();
-
-            const country = countries
-                .sort((a, b) => b.phoneCode.length - a.phoneCode.length)
-                .find(c => normalizedNumber.startsWith(c.phoneCode));
+            } 
             
             if (!country) {
                 return { status: 404, success: false, message: getMessage('COUNTRY_NOT_FOUND') };

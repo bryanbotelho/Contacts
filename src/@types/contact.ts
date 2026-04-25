@@ -10,7 +10,8 @@ export interface CreateContact {
     id: number;
     firstName: string;
     lastName: string;
-    number: string;
+    number: number;
+    ddi: string;
     countryId: number;
     country?: CreateCountry;
     createdAt: Date;
@@ -21,7 +22,8 @@ export interface UpdateContact {
     id?: number;
     firstName?: string;
     lastName?: string;
-    number?: string;
+    number?: number;
+    ddi?: string;
     countryId?: number;
     country?: CreateCountry;
     createdAt?: Date;

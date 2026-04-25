@@ -69,4 +69,20 @@ export const UpdateContactSchema = (lang: 'pt' | 'en' = 'pt') => {
         'any.required': getMessage('FIELD_REQUIRED_PHONE')
         }),
     });
+};
+
+export const DeleteContactSchema = (lang: 'pt' | 'en' = 'pt') => {
+    return Joi.object({
+        id: Joi.number()
+        .greater(0)
+        .min(1)
+        .required()
+        .messages({
+            'number.base': getMessage('FIELD_INVALID_ID'),
+            'number.greater': getMessage('FIELD_INVALID_ID'),
+            'number.min': getMessage('FIELD_INVALID_ID'),
+            'number.empty': getMessage('FIELD_INVALID_ID'),
+            'any.required': getMessage('FIELD_REQUIRED_ID'),
+        }),
+    });
 }

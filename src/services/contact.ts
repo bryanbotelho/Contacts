@@ -37,11 +37,7 @@ class ContactService {
                 .find((c: { phoneCode: string }) => number.startsWith(c.phoneCode));
 
             if (!country) {
-                return {
-                    status: 404,
-                    success: false,
-                    message: getMessage('COUNTRY_NOT_FOUND')
-                };
+                return { status: 404, success: false, message: getMessage('COUNTRY_NOT_FOUND') };
                 }
 
             await prisma.contact.create({
@@ -118,6 +114,68 @@ class ContactService {
             return { status: 500, success: false, message: getMessage('SERVER_ERROR', this.lang as 'pt') };
         }
     }
+
+    async getContacts(query: any) {
+    try {
+        const { page = 1, active = 'true', name } = query;
+
+        const limit = 10;
+        const skip = (Number(page) - 1) * limit;
+
+        const filters: any = {};
+
+        if (active === 'true') {
+            filters.active = true;
+        } else if (active === 'false') {
+            filters.active = false;
+        }
+
+        if (name) {
+            filters.OR = [
+                {
+                    firstName: {
+                        contains: name,
+                        mode: 'insensitive'
+                    }
+                },
+                {
+                    lastName: {
+                        contains: name,
+                        mode: 'insensitive'
+                    }
+                }
+            ];
+        }
+
+        const contacts = await prisma.contact.findMany({
+            where: filters,
+            skip,
+            take: limit,
+            orderBy: {
+                id: 'asc'
+            },
+            select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                number: true,
+                active: true,
+                countryId: true
+            }
+        });
+
+        const total = await prisma.contact.count({
+            where: filters
+        });
+
+        return { status: 200, success: true, contacts, pagination: { total, page: Number(page), limit, totalPages: Math.ceil(total / limit) }
+    };
+    } catch (error) {
+        console.error(error);
+        return { status: 500, success: false, message: getMessage('SERVER_ERROR', this.lang as 'pt')
+        };
+    }
+}
 }
 
 export default new ContactService();

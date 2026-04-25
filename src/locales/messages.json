@@ -23,6 +23,7 @@
     "INVALID_PHONE_NUMBER": "O número de telefone é inválido.",
     "COUNTRY_NOT_FOUND": "O país informado não foi encontrado.",
     "CONTACT_ALREADY_EXISTS": "Já existe um contato com esse número de telefone.",
+    "CONTACT_NOT_ALREADY_EXISTS": "Não existe um contato com esse número de telefone.",
     "CONTACT_UPDATED": "Contato atualizado com sucesso."
   },
 
@@ -50,6 +51,7 @@
     "INVALID_PHONE_NUMBER": "The phone number is invalid.",
     "COUNTRY_NOT_FOUND": "The specified country was not found.",
     "CONTACT_ALREADY_EXISTS": "A contact with this phone number already exists.",
+    "CONTACT_NOT_ALREADY_EXISTS": "No contact with this phone number exists.",
     "CONTACT_UPDATED": "Contact successfully updated."
   }
 }

@@ -27,7 +27,7 @@ class ContactService {
             });
 
             if (!existingContact)  {
-                return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS') };
+                return { status: 409, success: false, message: getMessage('CONTACT_NOT_ALREADY_EXISTS') };
             }
 
             const country = countries
@@ -43,10 +43,6 @@ class ContactService {
                     message: getMessage('COUNTRY_NOT_FOUND')
                 };
                 }
-
-            if (!country) {
-                return { status: 404, success: false, message: getMessage('COUNTRY_NOT_FOUND') };
-            }
 
             await prisma.contact.create({
                 data: {
@@ -75,7 +71,7 @@ class ContactService {
                 const errorMessage = validator.error.details.map(err => err.message).join(', ');
                 return { status: 400, success: false, message: errorMessage };
             }
-            const existingContact = await prisma.contact.findUnique({
+            const existingContact = prisma.contact.findUnique({
                 where: { id }
             });
 
@@ -83,12 +79,36 @@ class ContactService {
                 return { status: 404, success: false, message: getMessage('CONTACT_NOT_FOUND', this.lang as 'pt') };
             }
 
+            const normalizedNumber = number!.trim();
+
+            const duplicated = await prisma.contact.findFirst({
+                where: {
+                    number: normalizedNumber,
+                    NOT: { id }
+                }
+            });
+            
+            if (duplicated) {
+                return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS')};
+            }
+            
+            const countries = await prisma.country.findMany();
+
+            const country = countries
+                .sort((a, b) => b.phoneCode.length - a.phoneCode.length)
+                .find(c => normalizedNumber.startsWith(c.phoneCode));
+            
+            if (!country) {
+                return { status: 404, success: false, message: getMessage('COUNTRY_NOT_FOUND') };
+            }
+
             await prisma.contact.update({
                 where: { id },
                 data: {
                     firstName,
                     lastName,
-                    number
+                    number: normalizedNumber,
+                    countryId: country.id
                 }
             });
 

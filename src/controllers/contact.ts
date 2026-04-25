@@ -24,6 +24,14 @@ class ContactController {
 
       return res.status(status).json({ message, success, contacts, pagination });
   }
+
+  async delete(req: Request, res: Response) {
+      const id = parseInt(req.params.id as string, 10);
+      const { message, success, status } = await ContactService.deleteContact(id);
+      if (!success) return res.status(status).json({ message, success });
+
+      return res.status(status).json({ message, success });
+  }
 }
 
 export default new ContactController();

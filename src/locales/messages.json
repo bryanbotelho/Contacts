@@ -36,7 +36,8 @@
     "DDI_FIELD_INVALID": "Campo 'DDI' é inválido.",
     "DDI_INVALID_GREATER": "O DDI deve ser um número inteiro positivo.",
     "DDI_MIN_LENGTH": "O DDI deve conter pelo menos 1 dígito.",
-    "DDI_MAX_LENGTH": "O DDI deve conter no máximo 4 dígitos."
+    "DDI_MAX_LENGTH": "O DDI deve conter no máximo 4 dígitos.",
+    "CONTACT_ALREADY_INACTIVE": "O contato já está inativo."
   },
 
   "en": {
@@ -75,7 +76,8 @@
     "DDI_FIELD_REQUIRED": "DDI field is required.",
     "DDI_FIELD_INVALID": "DDI field is invalid.", 
     "DDI_INVALID_GREATER": "DDI must be a positive integer.",
-    "DDI_MIN_LENGTH": "DDI must be at least 1 digit long."
+    "DDI_MIN_LENGTH": "DDI must be at least 1 digit long.",
+    "CONTACT_ALREADY_INACTIVE": "The contact is already inactive."
   }
 }
 

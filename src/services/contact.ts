@@ -198,6 +198,10 @@ class ContactService {
                 return { status: 404, success: false, message: getMessage('CONTACT_NOT_FOUND', this.lang as 'pt') };
             }
 
+            if (existingContact.active === false){
+                return { status: 400, success: false, message: getMessage('CONTACT_ALREADY_INACTIVE', this.lang as 'pt') };
+            }
+
             await prisma.contact.update({
                 where: { id },
                 data: { active: false }

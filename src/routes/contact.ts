@@ -4,5 +4,6 @@ import ContactController  from "../controllers/contact";
 const router = Router();
 router.post("/", (req, res) => ContactController.create(req, res));
 router.put("/:id", (req, res) => ContactController.update(req, res));
+router.get("/", (req, res) => ContactController.getContacts(req, res));
 
 export default router;

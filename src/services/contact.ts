@@ -117,7 +117,7 @@ class ContactService {
 
     async getContacts(query: any) {
         try {
-            const { name, page = 1, active = 'true' } = query;
+            const { name, page = 1, active = 'all' } = query;
 
             const limit = 10;
             const skip = (Number(page) - 1) * limit;

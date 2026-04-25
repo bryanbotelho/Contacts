@@ -2,7 +2,7 @@ import Joi from 'joi';
 import { prisma } from '../lib/prisma';
 import { CreateContact, UpdateContact } from 'src/@types/contact';
 import { getMessage } from 'src/utils/messageHelper';
-import { CreateContactSchema, UpdateContactSchema } from 'src/schemas/contact';
+import { CreateContactSchema, UpdateContactSchema, DeleteContactSchema } from 'src/schemas/contact';
 
 class ContactService {
     private lang = 'pt';
@@ -160,8 +160,15 @@ class ContactService {
                     lastName: true,
                     number: true,
                     active: true,
-                    countryId: true
+                    countryId: true,
+                    createdAt: true,
+                    updatedAt: true
                 }
+            });
+
+            contacts.forEach((c: any) => {
+                c.createdAt = new Date(c.createdAt).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+                c.updatedAt = new Date(c.updatedAt).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
             });
 
             const total = await prisma.contact.count({

@@ -17,6 +17,13 @@ class ContactController {
 
       return res.status(status).json({ message, success });
   }
+
+  async getContacts(req: Request, res: Response) {
+      const { message, success, status, contacts, pagination } = await ContactService.getContacts(req.query);
+      if (!success) return res.status(status).json({ message, success });
+
+      return res.status(status).json({ message, success, contacts, pagination });
+  }
 }
 
 export default new ContactController();

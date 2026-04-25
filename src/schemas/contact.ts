@@ -78,11 +78,11 @@ export const DeleteContactSchema = (lang: 'pt' | 'en' = 'pt') => {
         .min(1)
         .required()
         .messages({
-            'number.base': getMessage('FIELD_INVALID_ID'),
-            'number.greater': getMessage('FIELD_INVALID_ID'),
-            'number.min': getMessage('FIELD_INVALID_ID'),
-            'number.empty': getMessage('FIELD_INVALID_ID'),
-            'any.required': getMessage('FIELD_REQUIRED_ID'),
+            'number.base': getMessage('DELETE_CONTACT_INVALID_ID'),
+            'number.greater': getMessage('DELETE_CONTACT_INVALID_GREATER'),
+            'number.min': getMessage('DELETE_CONTACT_ID_MIN_LENGTH'),
+            'number.empty': getMessage('DELETE_CONTACT_ID_EMPTY'),
+            'any.required': getMessage('DELETE_CONTACT_ID_REQUIRED'),
         }),
     });
 }

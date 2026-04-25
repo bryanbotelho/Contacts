@@ -26,8 +26,8 @@ class ContactService {
                 }
             });
 
-            if (!existingContact)  {
-                return { status: 409, success: false, message: getMessage('CONTACT_NOT_ALREADY_EXISTS') };
+            if (existingContact)  {
+                return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS') };
             }
 
             const country = countries

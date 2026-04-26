@@ -57,7 +57,7 @@ npm install
 ### 📥 Coleção de Rotas (Postman / Insomnia)
 
 Para facilitar os testes, deixei um arquivo de coleção pronto no google drive.
-* **Arquivo:** `contacts_collection.json`
+* **Arquivo:** `https://drive.google.com/drive/folders/1c2EWEvGXVBMOfe2CGiL9GY_6QwpyaPoS?usp=drive_link`
 * **Como usar:** Importe este arquivo no seu **Postman** ou **Insomnia**. Ele já contém todos os exemplos de corpo (body) e a configuração de autenticação necessária.
 
 ## ⚙️ Configuração

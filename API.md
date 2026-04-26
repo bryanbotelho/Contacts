@@ -317,5 +317,6 @@ Utilizando **Joi**:
 * Rotas protegidas exigem JWT
 * O país é identificado automaticamente ao criar/atualizar contatos
 * A base de países deve estar populada corretamente (seed)
+* 
 
 ---

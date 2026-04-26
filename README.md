@@ -1,44 +1,54 @@
 # 📌 Contacts API
-API REST para gerenciamento de contatos que identifica automaticamente o país com base no DDI do número de telefone.
 
-A aplicação permite criar, listar, buscar e remover contatos, validando os dados e detectando o país de forma automática.
+API REST para gerenciamento de contatos com identificação automática de país com base no DDI do número de telefone.
+
+A aplicação permite criar, listar, buscar e remover contatos, com validação robusta e detecção inteligente do país.
 
 ---
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Funcionalidades
+
+* ✅ Cadastro de usuários com autenticação
+* 🔐 Login com JWT
+* 📇 CRUD completo de contatos
+* 🌎 Identificação automática de país via DDI
+* ✔️ Validação de dados com Joi
+* 🔒 Senhas criptografadas com Bcrypt
+* 🐳 Suporte a Docker
+
+---
+
+## 🛠️ Tecnologias utilizadas
 
 * Node.js
 * TypeScript
 * Express
+* JWT (JSON Web Token)
+* Bcrypt
 * Prisma ORM
 * PostgreSQL
-* Joi (validação)
-* TSX (execução em dev)
+* Joi
+* Docker & Docker Compose
+* TSX
 
 ---
 
-## 📦 Dependências necessárias
+## 📦 Pré-requisitos
 
-Antes de rodar o projeto, você precisa ter instalado:
+Antes de rodar o projeto, instale:
 
 * Node.js (>= 18)
 * npm
 * PostgreSQL
+* Docker (opcional)
 
 ---
 
 ## 📥 Instalação
 
-Clone o repositório:
-
 ```bash
 git clone https://github.com/bryanbotelho/Contacts.git
 cd Contacts
-```
-
-Instale as dependências:
-
-```bash
 npm install
 ```
 
@@ -46,33 +56,30 @@ npm install
 
 ## ⚙️ Configuração
 
-Crie um arquivo `.env` na raiz do projeto:
+Crie um arquivo `.env`:
 
 ```env
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"
 PORT=3000
+JWT_SECRET=your_secret_key
 ```
 
 ---
 
-## 🧱 Banco de dados (Prisma)
-
-Gerar o client:
+## 🧱 Banco de Dados (Sem Docker)
 
 ```bash
 npx prisma generate
-```
-
-Rodar migrations:
-
-```bash
 npx prisma migrate dev
+npx prisma db seed
 ```
 
-Rodar seed:
+---
+
+## 🐳 Rodando com Docker
 
 ```bash
-npx prisma db seed
+docker-compose up --build
 ```
 
 ---
@@ -85,29 +92,8 @@ Modo desenvolvimento:
 npm run dev
 ```
 
-O servidor será iniciado em:
+Servidor disponível em:
 
 ```
 http://localhost:3000
 ```
-
----
-
-## 📡 Como usar a aplicação
-
-A API permite:
-
-* Criar contatos com nome e telefone
-* Validar dados com Joi
-* Identificar automaticamente o país pelo DDI
-* Listar contatos
-* Buscar contatos por ID
-* Remover contatos
-
----
-
-
-## ❗ Observações
-
-* A identificação do país é feita com base no maior prefixo (DDI)
-* Números inválidos são rejeitados via validação (Joi)

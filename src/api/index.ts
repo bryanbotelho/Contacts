@@ -1,7 +1,8 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import contactRoutes, usersRoutes from '../routes/contact';
+import contactRoutes from '../routes/contact';
+import usersRoutes from '../routes/users';
 
 dotenv.config();
 

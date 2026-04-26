@@ -2,7 +2,7 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import contactRoutes from '../routes/contact';
-import usersRoutes from '../routes/users';
+import authRoutes from '../routes/authRoutes';
 
 dotenv.config();
 
@@ -25,7 +25,7 @@ class App {
 
   private routes(): void {
     this.app.use('/contacts', contactRoutes);
-    this.app.use('/users',usersRoutes);
+    this.app.use('/auth',authRoutes);
     
   }
 

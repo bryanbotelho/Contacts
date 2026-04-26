@@ -1,10 +1,11 @@
 import { Router } from "express";
 import ContactController  from "../controllers/contact";
+import { authMiddleware } from '../middlewares/auth';
 
 const router = Router();
-router.post("/", (req, res) => ContactController.create(req, res));
-router.put("/:id", (req, res) => ContactController.update(req, res));
-router.get("/", (req, res) => ContactController.getContacts(req, res));
-router.delete("/:id", (req, res) => ContactController.delete(req, res));
+router.post("/", authMiddleware, ContactController.create);
+router.put("/:id", ContactController.update);
+router.get("/", ContactController.getContacts);
+router.delete("/:id", ContactController.delete);
 
 export default router;

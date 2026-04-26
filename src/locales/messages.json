@@ -37,7 +37,24 @@
     "DDI_INVALID_GREATER": "O DDI deve ser um número inteiro positivo.",
     "DDI_MIN_LENGTH": "O DDI deve conter pelo menos 1 dígito.",
     "DDI_MAX_LENGTH": "O DDI deve conter no máximo 4 dígitos.",
-    "CONTACT_ALREADY_INACTIVE": "O contato já está inativo."
+    "CONTACT_ALREADY_INACTIVE": "O contato já está inativo.",
+    "USER_CREATED": "Usuário criado com sucesso.",
+    "EMAIL_ALREADY_EXISTS": "Já existe um usuário com esse email.",
+    "INVALID_EMAIL": "O email fornecido é inválido.",
+    "PASSWORD_MIN_LENGTH": "A senha deve conter pelo menos 6 caracteres.",
+    "PASSWORD_MAX_LENGTH": "A senha deve conter no máximo 50 caracteres.",
+    "PASSWORD_TOO_WEAK": "A senha fornecida é muito fraca.",
+    "PASSWORD_FIELD_REQUIRED": "Campo 'senha' é obrigatório.",
+    "NAME_FIELD_REQUIRED": "Campo 'nome' é obrigatório.",
+    "EMAIL_FIELD_REQUIRED": "Campo 'email' é obrigatório.",
+    "USER_EXISTS_EMAIL": "Já existe um usuário com esse email.",
+    "NAME_FIELD_INVALID": "Campo 'nome' é inválido.",
+    "NAME_MIN_LENGTH": "O nome deve conter pelo menos 3 caracteres.",
+    "NAME_MAX_LENGTH": "O nome deve conter no máximo 30 caracteres.",
+    "EMAIL_INVALID": "O email fornecido é inválido.",
+    "USER_NOT_FOUND": "Usuário não encontrado.",
+    "INVALID_PASSWORD": "A senha fornecida é inválida."
+  
   },
 
   "en": {
@@ -77,7 +94,22 @@
     "DDI_FIELD_INVALID": "DDI field is invalid.", 
     "DDI_INVALID_GREATER": "DDI must be a positive integer.",
     "DDI_MIN_LENGTH": "DDI must be at least 1 digit long.",
-    "CONTACT_ALREADY_INACTIVE": "The contact is already inactive."
+    "CONTACT_ALREADY_INACTIVE": "The contact is already inactive.",
+    "USER_CREATED": "User successfully created.",
+    "EMAIL_ALREADY_EXISTS": "A user with this email already exists.",
+    "INVALID_EMAIL": "The email provided is invalid.",
+    "PASSWORD_MIN_LENGTH": "Password must be at least 6 characters long.",
+    "PASSWORD_MAX_LENGTH": "Password must be at most 50 characters long.",
+    "PASSWORD_FIELD_REQUIRED": "Password field is required.",
+    "NAME_FIELD_REQUIRED": "Name field is required.",
+    "EMAIL_FIELD_REQUIRED": "Email field is required.",
+    "USER_EXISTS_EMAIL": "A user with this email already exists.",
+    "NAME_FIELD_INVALID": "Name field is invalid.",
+    "NAME_MIN_LENGTH": "Name must be at least 3 characters long.",
+    "NAME_MAX_LENGTH": "Name must be at most 30 characters long.",
+    "EMAIL_INVALID": "The email provided is invalid.",
+    "USER_NOT_FOUND": "User not found.",
+    "INVALID_PASSWORD": "The password provided is invalid."
   }
 }
 

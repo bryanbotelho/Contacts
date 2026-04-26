@@ -4,8 +4,8 @@ import { authMiddleware } from '../middlewares/auth';
 
 const router = Router();
 router.post("/", authMiddleware, ContactController.create);
-router.put("/:id", ContactController.update);
+router.put("/:id",authMiddleware, ContactController.update);
 router.get("/", ContactController.getContacts);
-router.delete("/:id", ContactController.delete);
+router.delete("/:id",authMiddleware, ContactController.delete);
 
 export default router;

@@ -87,11 +87,11 @@ class ContactService {
             });
             
             if (duplicated) {
-                return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS')};
+                return { status: 409, success: false, message: getMessage('CONTACT_ALREADY_EXISTS', , this.lang as 'pt')};
             } 
             
             if (!country) {
-                return { status: 404, success: false, message: getMessage('COUNTRY_NOT_FOUND') };
+                return { status: 404, success: false, message: getMessage('COUNTRY_NOT_FOUND', , this.lang as 'pt') };
             }
 
             await prisma.contact.update({
